@@ -19,11 +19,12 @@ WHERE fecha_nacimiento BETWEEN '1980-01-01' AND '1989-12-31';
   FROM PAGO
 
   --Suma de todos los pagos que realizó un pasajero. El monto debe aparecer con dos decimales
+  SELECT idpasajero as 'Id pasajero', ROUND(SUM(monto),2) as 'Total por pasajero'
   SELECT ROUND(SUM(monto),2)
   FROM PAGO
   GROUP BY idpasajero
 
   --Promedio de los pagos que realizó un pasajero.
-  SELECT ROUND(AVG(monto),2)
+  SELECT idpasajero as 'Id pasajero', AVG(monto) as 'Promedio por pasajero'
   FROM PAGO
   GROUP BY idpasajero
